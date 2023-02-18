@@ -14,13 +14,13 @@ def find_all_users_name(data: dict)->list:
         
         if "actor" in user:
             a = user["actor"]
-            b = user["actor_id"]
-            if a not in users_name and b.startswith("user"):
+            # b = user["actor_id"]
+            if a not in users_name: # and b.startswith("user"):
                 users_name.append(a)
         elif "from" in user:
             a = user["from"]
-            b = user["from_id"]
-            if a not in users_name and b.startswith("user"):
+            # b = user["from_id"]
+            if a not in users_name and: # b.startswith("user"):
                 users_name.append(a)
                 
     return users_name
