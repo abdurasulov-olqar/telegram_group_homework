@@ -20,7 +20,7 @@ def find_all_users_name(data: dict)->list:
         elif "from" in user:
             a = user["from"]
             # b = user["from_id"]
-            if a not in users_name and: # b.startswith("user"):
+            if a not in users_name: # b.startswith("user"):
                 users_name.append(a)
                 
     return users_name
