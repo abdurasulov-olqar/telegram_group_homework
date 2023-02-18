@@ -11,15 +11,25 @@ def find_user_message_count(data: dict, users_id: str)->dict:
     Returns:
         dict: Number of messages of the users
     """
+    users_id = []
+    for user in data["messages"]:
+        
+        if "from_id" in user:
+            a = user["from_id"]
+            if a not in users_id:
+                users_id.append(a)
+    # print(users_id) 
+                
     massege_user: dict= {}
    
-    for userId in user_id:
+    for userId in users_id:
         # print(userId)
         massage_count: int = 0
         for user in data["messages"]:
             if user["type"] == "message" and user["from_id"] == userId:
                 massage_count += 1
-        massege_user.update({userId: massage_count})
+        if massage_count != 0:
+            massege_user.update({userId: massage_count})
     return massege_user
                 
 
