@@ -14,14 +14,14 @@ def find_all_users_id(data: dict)->list:
         
         if "actor_id" in user:
             a = user["actor_id"]
-            if a not in users_id:
+            if a not in users_id and a.startswith("user"):
                 users_id.append(a)
         elif "from_id" in user:
             a = user["from_id"]
-            if a not in users_id:
+            if a not in users_id and a.startswith("user"):
                 users_id.append(a) 
                 
     return users_id
 
 data = read_data('data/result.json')
-# print(find_all_users_id(data))
+print(find_all_users_id(data))
